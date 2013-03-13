@@ -1,0 +1,5 @@
+The script getPolymat.py takes input a text file (containing the output of a compiled bltdump form of an OpenModelica model) and generates the polynomial matrix of the equations out of it in an output directory. It creats two files viz. a text file giving the sequence of variables, and a Scilab readable file containing the polynomial matrix.
+
+The file getPolymatFunctions.py contains the associated functions to get the polynomial matrix.
+
+The scilab code getABCD.sce extracts the state matrices A, B, C, D out of the polynomial matrix. The associated functions are defined in getABCDfunctions.sci
