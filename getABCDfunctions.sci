@@ -142,12 +142,25 @@ endfunction
 // and multiplies entire row by -1 if necessary. Then A,B,C,D are extracted out.
 
 function [Rker2, A, B, C, D] = RowManipulatePlusIs(Rker, num_states)
-	Rker2 = Rker
-	for i = 1:num_states,
-		if abs(coeff(Rker(i,i),1)+1) <= 0.001 then
-			Rker2(i,:) = -Rker(i,:)
-		end
-	end
+	rows = size(Rker,'r')
+
+    	for i = 1:rows,
+        	if degree(Rker(i,i)) == 1 then
+            		Rker2(i,:) = Rker(i,:)/abs(coeff(Rker(i,i),1))
+            		if abs(coeff(Rker(i,i),1)+1) <= 0.001 then
+                		Rker2(i,:) = -Rker(i,:)
+            		end
+        	else
+            		Rker2(i,:) = Rker(i,:)
+        	end
+    	end
+
+	// Rker2 = Rker
+	// for i = 1:num_states,
+	//	if abs(coeff(Rker(i,i),1)+1) <= 0.001 then
+	//		Rker2(i,:) = -Rker(i,:)
+	//	end
+	// end
 	
 	A = -coeff(Rker2(1:num_states, 1:num_states), 0)
 	B = -coeff(Rker2(1:num_states, num_states+1), 0)
