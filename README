@@ -3,3 +3,8 @@ The script getPolymat.py takes input a text file (containing the output of a com
 The file getPolymatFunctions.py contains the associated functions to get the polynomial matrix.
 
 The scilab code getABCD.sce extracts the state matrices A, B, C, D out of the polynomial matrix. The associated functions are defined in getABCDfunctions.sci
+
+
+** **
+For more detail, please see the file "theory-behind-codes.pdf" 
+** **
